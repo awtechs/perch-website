@@ -12,7 +12,7 @@ header{height:68px;display:flex;align-items:center;justify-content:space-between
 nav{display:flex;gap:20px;font-size:12px;color:var(--muted)}
 nav a{text-decoration:none}
 nav a:hover,.text-link:hover{color:var(--text)}
-.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(220px,.7fr);align-items:center;gap:32px;padding:66px 0 54px}
+.hero{display:block;padding:66px 0 54px}
 .prompt{color:var(--green);font-size:12px;letter-spacing:.04em;margin-bottom:14px}
 h1{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:clamp(44px,7vw,72px);line-height:.98;letter-spacing:-.055em;margin:0 0 22px;max-width:680px}
 h2{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:clamp(24px,3vw,34px);line-height:1.15;letter-spacing:-.035em;margin:0;max-width:690px}
@@ -23,8 +23,6 @@ p{max-width:700px}
 .button{display:inline-flex;align-items:center;justify-content:center;background:var(--text);color:var(--bg);padding:9px 14px;border-radius:5px;text-decoration:none;font-weight:700;font-size:13px}
 .button:hover{background:#fff}
 .text-link{font-size:12px;color:var(--muted);text-decoration:none}
-.hero-mark{justify-self:end;width:240px;height:240px;display:grid;place-items:center;border:1px solid var(--line);border-radius:14px;background:radial-gradient(circle at 50% 35%,rgba(99,169,255,.10),transparent 60%),var(--panel);box-shadow:inset 0 0 0 1px rgba(255,255,255,.015)}
-.hero-mark img{width:190px;height:190px;object-fit:contain}
 .status-line{display:flex;gap:22px;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;color:var(--faint);font-size:11px;text-transform:uppercase;letter-spacing:.07em}
 .status-line span:first-child{color:var(--green)}
 .status-line i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:7px;box-shadow:0 0 10px rgba(112,224,140,.45)}
@@ -60,10 +58,8 @@ footer a{text-decoration:none}footer a:hover{color:var(--text)}
   header{height:auto;min-height:64px;gap:16px}
   nav{gap:13px;font-size:11px}
   nav a:first-child{display:none}
-  .hero{grid-template-columns:1fr;padding:46px 0 38px;gap:28px}
+  .hero{padding:46px 0 38px}
   h1{font-size:48px}
-  .hero-mark{justify-self:start;width:180px;height:180px}
-  .hero-mark img{width:145px;height:145px}
   .section{padding:38px 0}
   .section-head{grid-template-columns:1fr;gap:4px;margin-bottom:22px}
   .steps{grid-template-columns:1fr}
