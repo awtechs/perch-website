@@ -1,1 +1,112 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Your server. Your approval. | Perch</title><meta name="description" content="Free, open-source VPS administration through MCP. Host Perch yourself and approve the commands your AI client runs."><link rel="stylesheet" href="/style.css"><link rel="icon" type="image/png" href="/assets/perch-logo.png"></head><body><header><a class="brand" href="/">Perch<span>.</span></a><nav aria-label="Main navigation"><a href="/#setup">Setup</a><a href="/support/">Support</a><a href="https://github.com/awtechs/perch">GitHub</a></nav></header><main class=""><section class="hero"><div><div class="eyebrow">Self-hosted VPS administration</div><h1>Your server.<br>Your approval.</h1><p class="lead">Let your AI client work on your Linux server. Perch puts you in control of every command it runs.</p><div class="actions"><a class="button" href="https://github.com/awtechs/perch#local-development">Get Perch</a><a class="button secondary" href="#setup">How it works</a></div></div><img src="/assets/perch-logo.png" alt="Perch bird logo with a blue terminal symbol" width="1254" height="1254"></section><div class="rail"><span>MIT licensed</span><span>Runs on your infrastructure</span><span>OAuth + MCP</span></div><section class="section"><div class="eyebrow">An explicit decision, every time</div><h2>From request to result.</h2><div class="grid"><div><div class="num">01 / REQUEST</div><h3>Your client requests a command.</h3><p>Perch records the exact Bash command, working directory and timeout.</p></div><div><div class="num">02 / APPROVE</div><h3>You decide what runs.</h3><p>Approve once, deny, or save a revocable rule for that exact command and client.</p></div><div><div class="num">03 / EXECUTE</div><h3>Follow the result.</h3><p>The authenticated client executes the approved request and retrieves its output and completion status.</p></div></div><div class="terminal"><span class="blue">$</span> uptime<br><span class="blue">Approval required</span><br>Approve now · Always approve this command for this client · Deny</div><p class="meta">Illustrative workflow. This website does not execute commands.</p></section><section class="section" id="setup"><div class="eyebrow">Get connected</div><h2>Bring your own Perch server.</h2><p>Install Perch on your Linux VPS using the repository's deployment guide. Set your public HTTPS address, then add <code>&lt;your-perch-url&gt;/mcp</code> to a compatible MCP client.</p><p>For ChatGPT, use a custom MCP connection with OAuth. Sign in to your own Perch instance and choose <strong>Connect this client</strong>. Connection permits command requests; you still control command approval.</p><div class="actions"><a class="button" href="https://github.com/awtechs/perch/blob/main/docs/deployment.md">Installation guide</a><a class="button secondary" href="https://github.com/awtechs/perch/blob/main/docs/authentication.md">Connection guide</a></div><p class="note">Perch is early alpha. Keep an independent recovery path such as SSH. Approval controls execution, but an approved privileged command can still change or damage your server.</p></section></main><footer><div>Perch by AWTechs · Free &amp; open source</div><div class="links"><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Perch — approve what runs</title>
+  <meta name="description" content="Self-hosted VPS administration through MCP, with explicit approval for shell commands.">
+  <meta name="theme-color" content="#07090d">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/perch-mascot.svg">
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Perch home">
+      <img src="/assets/perch-mascot.svg" alt="" width="28" height="28">
+      <span>perch</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#how">how it works</a>
+      <a href="#setup">setup</a>
+      <a href="https://github.com/awtechs/perch">github ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="prompt">~/server $ perch</div>
+        <h1>Your server.<br>Your approval.</h1>
+        <p class="lead">Let an AI client work on your Linux VPS without handing it unattended shell access. Perch asks first, runs second.</p>
+        <div class="actions">
+          <a class="button" href="https://github.com/awtechs/perch#local-development">get perch</a>
+          <a class="text-link" href="https://github.com/awtechs/perch/blob/main/docs/deployment.md">deployment guide ↗</a>
+        </div>
+      </div>
+      <div class="hero-mark" aria-hidden="true">
+        <img src="/assets/perch-mascot.svg" alt="" width="230" height="220">
+      </div>
+    </section>
+
+    <div class="status-line" aria-label="Project highlights">
+      <span><i></i> open source</span>
+      <span>self-hosted</span>
+      <span>oauth + mcp</span>
+      <span>approval-first</span>
+    </div>
+
+    <section class="section" id="how">
+      <div class="section-head">
+        <div class="prompt">workflow</div>
+        <h2>One explicit decision between request and shell.</h2>
+      </div>
+
+      <div class="steps">
+        <article>
+          <span>01</span>
+          <h3>request</h3>
+          <p>Your client submits the exact command, working directory and timeout.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>approve</h3>
+          <p>Approve once, deny it, or save a revocable rule for that exact command and client.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>execute</h3>
+          <p>Perch runs only the approved request and returns output and completion status.</p>
+        </article>
+      </div>
+
+      <div class="terminal" role="img" aria-label="Example Perch command approval flow">
+        <div class="terminal-bar"><span></span><span></span><span></span><b>perch@prod</b></div>
+        <pre><code><em>$</em> uptime
+<span>approval required</span>
+
+[1] approve now
+[2] always approve this command for this client
+[3] deny
+
+&gt; 1
+<span>approved</span>
+ 05:04:17 up 41 days,  load average: 0.12, 0.08, 0.04</code></pre>
+      </div>
+    </section>
+
+    <section class="section setup" id="setup">
+      <div class="section-head">
+        <div class="prompt">setup</div>
+        <h2>Bring your own server.</h2>
+      </div>
+      <p>Install Perch on your Linux VPS, expose it through HTTPS, then connect a compatible MCP client to <code>&lt;your-perch-url&gt;/mcp</code>.</p>
+      <p>For ChatGPT, connect your Perch instance with OAuth. Connecting authorises command requests; it does not bypass command approval.</p>
+      <div class="actions">
+        <a class="button" href="https://github.com/awtechs/perch/blob/main/docs/deployment.md">install</a>
+        <a class="text-link" href="https://github.com/awtechs/perch/blob/main/docs/authentication.md">authentication ↗</a>
+      </div>
+      <p class="note"><strong>early alpha</strong> — keep an independent recovery path such as SSH. An approved privileged command can still change or damage the server.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div>perch / awtechs</div>
+    <div class="links">
+      <a href="/support/">support</a>
+      <a href="/privacy/">privacy</a>
+      <a href="/terms/">terms</a>
+      <a href="https://github.com/awtechs/perch">github ↗</a>
+    </div>
+  </footer>
+</body>
+</html>
